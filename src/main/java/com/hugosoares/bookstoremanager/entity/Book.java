@@ -18,7 +18,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
@@ -30,8 +30,8 @@ public class Book {
     @Column(nullable = false)
     private String isbn;
 
-    @Column(name = "publischer_name", nullable = false, unique = true)
-    private String publischerName;
+    @Column(name = "publisher_name", nullable = false, unique = true)
+    private String publisherName;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE} ) //Indica mapeamento de muitos para um
     @JoinColumn(name = "author_id") // Qual coluna faz o relacionamento
